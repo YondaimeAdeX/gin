@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbArabaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblArabalar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="marka" Type="nvarchar" MaxLength="50" />
+          <Property Name="modelTarihi" Type="nvarchar" MaxLength="50" />
+          <Property Name="modeli" Type="nvarchar" MaxLength="50" />
+          <Property Name="yakit" Type="nvarchar" MaxLength="50" />
+          <Property Name="rengi" Type="nvarchar" MaxLength="50" />
+          <Property Name="durumu" Type="bit" />
+          <Property Name="fiyati" Type="float" />
+        </EntityType>
+        <EntityType Name="tblmarkalar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="markaadi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblmodeller">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="modeladi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="dbArabaModelStoreContainer">
+          <EntitySet Name="tblArabalar" EntityType="Self.tblArabalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblmarkalar" EntityType="Self.tblmarkalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblmodeller" EntityType="Self.tblmodeller" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbArabaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblArabalar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="marka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="modelTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="modeli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="yakit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rengi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="durumu" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tblmarkalar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="markaadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblmodeller">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="modeladi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="dbArabaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblArabalar" EntityType="Self.tblArabalar" />
+          <EntitySet Name="tblmarkalar" EntityType="Self.tblmarkalar" />
+          <EntitySet Name="tblmodeller" EntityType="Self.tblmodeller" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbArabaModelStoreContainer" CdmEntityContainer="dbArabaEntities">
+          <EntitySetMapping Name="tblArabalar">
+            <EntityTypeMapping TypeName="dbArabaModel.tblArabalar">
+              <MappingFragment StoreEntitySet="tblArabalar">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="marka" ColumnName="marka" />
+                <ScalarProperty Name="modelTarihi" ColumnName="modelTarihi" />
+                <ScalarProperty Name="modeli" ColumnName="modeli" />
+                <ScalarProperty Name="yakit" ColumnName="yakit" />
+                <ScalarProperty Name="rengi" ColumnName="rengi" />
+                <ScalarProperty Name="durumu" ColumnName="durumu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblmarkalar">
+            <EntityTypeMapping TypeName="dbArabaModel.tblmarkalar">
+              <MappingFragment StoreEntitySet="tblmarkalar">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="markaadi" ColumnName="markaadi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblmodeller">
+            <EntityTypeMapping TypeName="dbArabaModel.tblmodeller">
+              <MappingFragment StoreEntitySet="tblmodeller">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="modeladi" ColumnName="modeladi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
